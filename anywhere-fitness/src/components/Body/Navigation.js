@@ -8,12 +8,10 @@ function NavBar() {
         <NavbarBrand href="/">Anywhere Fitness</NavbarBrand>
         <Nav className="mr-auto" navbar>
           <NavItem>
-            <NavLink href="/components/">Login</NavLink>
+            <NavLink href="#">Login</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="https://github.com/reactstrap/reactstrap">
-              Signup
-            </NavLink>
+            <NavLink href="#">Signup</NavLink>
           </NavItem>
         </Nav>
       </Navbar>
