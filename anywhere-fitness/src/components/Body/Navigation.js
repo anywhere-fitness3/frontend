@@ -5,21 +5,21 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="dark" dark expand="md">
         <NavbarBrand href="/">Anywhere Fitness</NavbarBrand>
         <Nav className="mr-auto" navbar>
           <NavItem>
-            <NavLink href="#">
+            <NavLink>
               <Link to={"/"}>Home</Link>
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">
+            <NavLink>
               <Link to={"/login"}>Login</Link>
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">
+            <NavLink>
               <Link to={"/signup"}>Signup</Link>
             </NavLink>
           </NavItem>

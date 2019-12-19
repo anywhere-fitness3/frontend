@@ -11,7 +11,7 @@ function LoginForm() {
             type="email"
             name="email"
             id="exampleEmail"
-            placeholder="with a placeholder"
+            placeholder="Enter Email"
           />
         </FormGroup>
         <FormGroup>
@@ -20,7 +20,7 @@ function LoginForm() {
             type="password"
             name="password"
             id="examplePassword"
-            placeholder="password placeholder"
+            placeholder="Enter Password"
           />
         </FormGroup>
         <Button>Login In</Button>
