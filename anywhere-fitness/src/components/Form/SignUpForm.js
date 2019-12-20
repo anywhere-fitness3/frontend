@@ -2,10 +2,13 @@ import React from "react";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 function SignUp() {
   return (
-    <Container>
-      <Form>
+    <Container className="form-container">
+      <Form className="form">
+        <h1 className="form-heading">Sign Up For Anywhere Fitness</h1>
         <FormGroup>
-          <Label for="exampleEmail">Email</Label>
+          <Label className="form-label" for="exampleEmail">
+            Email
+          </Label>
           <Input
             type="email"
             name="email"
@@ -14,7 +17,9 @@ function SignUp() {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="password">Password</Label>
+          <Label className="form-label" for="password">
+            Password
+          </Label>
           <Input
             type="password"
             name="password"
@@ -23,7 +28,9 @@ function SignUp() {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="confirmPassword">Confirm Password</Label>
+          <Label className="form-label" for="confirmPassword">
+            Confirm Password
+          </Label>
           <Input
             type="password"
             name="password"
@@ -32,7 +39,9 @@ function SignUp() {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="instructorCode">Instructor Code</Label>
+          <Label className="form-label" for="instructorCode">
+            Instructor Code
+          </Label>
           <Input
             type="password"
             name="password"
@@ -41,7 +50,7 @@ function SignUp() {
           />
         </FormGroup>
         <FormGroup check>
-          <Label check>
+          <Label className="form-label" check>
             <Input type="checkbox" /> Terms and Agreements
           </Label>
         </FormGroup>

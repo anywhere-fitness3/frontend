@@ -24,3 +24,25 @@
   border: #e31837 2px solid;
   margin: 0 1%;
 }
+
+.form-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form {
+  background: #e31837;
+  padding: 50px;
+}
+
+.form-label {
+  color: white;
+}
+
+.form-heading {
+  display: flex;
+  justify-content: center;
+  color: white;
+}

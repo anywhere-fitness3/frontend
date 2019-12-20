@@ -3,10 +3,13 @@ import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 function LoginForm() {
   return (
-    <Container>
-      <Form>
+    <Container className="form-container">
+      <Form className="form">
+        <h1 className="form-heading">Log In to Your Account</h1>
         <FormGroup>
-          <Label for="exampleEmail">Email</Label>
+          <Label className="form-label" for="exampleEmail">
+            Email
+          </Label>
           <Input
             type="email"
             name="email"
@@ -15,7 +18,9 @@ function LoginForm() {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="examplePassword">Password</Label>
+          <Label className="form-label" for="examplePassword">
+            Password
+          </Label>
           <Input
             type="password"
             name="password"
@@ -23,7 +28,7 @@ function LoginForm() {
             placeholder="Enter Password"
           />
         </FormGroup>
-        <Button>Login In</Button>
+        <Button>Login</Button>
       </Form>
     </Container>
   );
