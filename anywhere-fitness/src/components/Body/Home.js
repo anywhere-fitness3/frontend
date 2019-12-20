@@ -26,5 +26,19 @@ const items = [
 ];
 
 export default function Home() {
-  return <UncontrolledCarousel items={items} />;
+  return (
+    <>
+      <UncontrolledCarousel items={items} />
+      <form className="search-form">
+        <input
+          className="search-input"
+          id="search"
+          type="text"
+          name="textfield"
+          placeholder="Search"
+        />
+        <button className="search-btn">Search</button>
+      </form>
+    </>
+  );
 }
