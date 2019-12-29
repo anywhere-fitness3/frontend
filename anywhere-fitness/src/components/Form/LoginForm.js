@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 function LoginForm() {
@@ -29,6 +30,11 @@ function LoginForm() {
           />
         </FormGroup>
         <Button>Login</Button>
+        <FormGroup>
+          <Label className="form-label" for="examplePassword">
+            Don't have an account? <Link to="/signup">Sign up here</Link>
+          </Label>
+        </FormGroup>
       </Form>
     </Container>
   );

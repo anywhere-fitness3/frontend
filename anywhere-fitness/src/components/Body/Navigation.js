@@ -11,13 +11,6 @@ function NavBar() {
           <NavItem>
             <NavLink>
               <Link className="nav-link" to={"/"}>
-                Home
-              </Link>
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink>
-              <Link className="nav-link" to={"/login"}>
                 Login
               </Link>
             </NavLink>

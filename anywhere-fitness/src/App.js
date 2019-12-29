@@ -10,8 +10,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Route exact path="/" component={Home} />
-      <Route path="/login" component={LoginForm} />
+      <Route exact path="/" component={LoginForm} />
       <Route path="/signup" component={SignUp} />
     </>
   );
