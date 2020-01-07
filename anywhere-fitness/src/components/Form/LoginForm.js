@@ -14,7 +14,7 @@ function LoginForm() {
   };
 
   const handleChanges = event => {
-    setLoginCred({ ...loginCred, [event.target.value]: event.target.value });
+    setLoginCred({ ...loginCred, [event.target.name]: event.target.value });
   };
 
   return (
