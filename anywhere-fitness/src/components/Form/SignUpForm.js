@@ -25,8 +25,13 @@ function SignUp() {
   }
 
   const handleChange = e => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value })
-    console.log(credentials)
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    console.log(credentials);
+  }
+
+  const handleTosChange = e => {
+    setCredentials({ ...credentials, tos: !credentials.tos });
+    console.log(credentials);
   }
 
   return (
@@ -87,7 +92,7 @@ function SignUp() {
         </FormGroup>
         <FormGroup check>
           <Label className="form-label" check>
-            <Input type="checkbox" name="tos" onChange={handleChange} checked={credentials.tos} /> Terms and Agreements
+            <Input type="checkbox" name="tos" value={credentials.tos} onChange={handleTosChange} checked={credentials.tos} /> Terms and Agreements
           </Label>
         </FormGroup>
         <Button>Submit</Button>
