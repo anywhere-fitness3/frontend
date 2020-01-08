@@ -1,5 +1,9 @@
+#root {
+  background: #e31837;
+}
+
 .brand {
-  color: #e31837 !important;
+  color: #fff !important;
   font-weight: 800;
 }
 
@@ -26,6 +30,7 @@
 }
 
 .form-container {
+  max-width: 800px !important;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,16 +38,16 @@
 }
 
 .form {
-  background: #e31837;
+  background: #fff;
   padding: 50px;
 }
 
 .form-label {
-  color: white;
+  color: #333;
 }
 
 .form-heading {
   display: flex;
   justify-content: center;
-  color: white;
+  color: #333;
 }

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 import { axiosWithAuth } from "../axiosWithAuth"
 
 function SignUp() {
+
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -39,10 +42,35 @@ function SignUp() {
       <Form onSubmit={handleSubmit} className="form">
         <h1 className="form-heading">Sign Up For Anywhere Fitness</h1>
         <FormGroup>
-          <Label className="form-label" for="exampleEmail">
+          <Label className="form-label" for="firstName">
+            First Name
+          </Label>
+          <Input
+            onChange={handleChanges}
+            type="name"
+            name="firstName"
+            id="firstName"
+            placeholder="Enter First Name"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label className="form-label" for="lastName">
+            Last Name
+          </Label>
+          <Input
+            onChange={handleChanges}
+            type="name"
+            name="lastName"
+            id="lastName"
+            placeholder="Enter Last Name"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label className="form-label" for="email">
             Email
           </Label>
           <Input
+            onChange={handleChanges}
             type="email"
             name="email"
             id="email"
@@ -56,6 +84,7 @@ function SignUp() {
             Password
           </Label>
           <Input
+            onChange={handleChanges}
             type="password"
             name="password"
             id="password"
@@ -69,6 +98,7 @@ function SignUp() {
             Confirm Password
           </Label>
           <Input
+            onChange={handleChanges}
             type="password"
             name="confirmPassword"
             id="confirmPassword"
@@ -82,7 +112,7 @@ function SignUp() {
             Instructor Code
           </Label>
           <Input
-            type="password"
+            type="text"
             name="instructorCode"
             id="instructorCode"
             onChange={handleChange}
@@ -96,6 +126,11 @@ function SignUp() {
           </Label>
         </FormGroup>
         <Button>Submit</Button>
+        <FormGroup>
+          <Label className="form-label" for="examplePassword">
+            Already have an account? <Link to="/">Login here</Link>
+          </Label>
+        </FormGroup>
       </Form>
     </Container>
   );

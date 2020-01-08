@@ -18,9 +18,11 @@ function App() {
   useEffect(()=>{
     setClassList(ClassData);
   }, [])
+
   return (
     <>
       <NavBar />
+
       <Router>
         <div className="App">
           <UserContext.Provider value={} >
