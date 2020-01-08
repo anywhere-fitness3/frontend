@@ -1,19 +1,38 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import NavBar from "./components/Body/Navigation";
 import Home from "./components/Body/Home";
 import LoginForm from "./components/Form/LoginForm";
 import SignUp from "./components/Form/SignUpForm";
 import "./App.css";
+import PrivateRoute from "./components/PrivateRoute";
+
 
 function App(props) {
   return (
     <>
       <NavBar />
-      <Route exact path="/" component={LoginForm} />
-      <Route path="/signup" component={SignUp} />
 
-      <Route exact path="/home" component={Home} />
+      <Router>
+        <div className="App">
+          <ul>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/signup">Sign Up</Link>
+            </li>
+            <li>
+              <Link to="/protected">Protected Page</Link>
+            </li>
+          </ul>
+          <Switch>
+            <PrivateRoute exact path="/protected" component={Home} />
+            <Route path="/login" component={LoginForm} />
+            <Route path="/signup" component={SignUp} />
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }

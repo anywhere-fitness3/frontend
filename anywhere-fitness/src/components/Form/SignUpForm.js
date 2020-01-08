@@ -1,28 +1,40 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
+
+import { axiosWithAuth } from "../axiosWithAuth"
+
 function SignUp() {
-  const [signUpCred, setSignUpCred] = useState({
-    firstName: "",
-    lastName: "",
+
+  const [credentials, setCredentials] = useState({
     email: "",
     password: "",
     confirmPassword: "",
-    instructorCode: ""
-  });
+    instructorCode: "",
+    tos: false
+  })
 
-  const submitForm = event => {
-    event.preventDefault();
-    console.log(signUpCred);
-  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post('')
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
-  const handleChanges = event => {
-    setSignUpCred({ ...signUpCred, [event.target.name]: event.target.value });
-  };
+  const handleChange = e => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value })
+    console.log(credentials)
+  }
 
   return (
     <Container className="form-container">
-      <Form onSubmit={submitForm} className="form">
+      <Form onSubmit={handleSubmit} className="form">
         <h1 className="form-heading">Sign Up For Anywhere Fitness</h1>
         <FormGroup>
           <Label className="form-label" for="firstName">
@@ -57,7 +69,9 @@ function SignUp() {
             type="email"
             name="email"
             id="email"
+            onChange={handleChange}
             placeholder="Enter Email"
+            value={credentials.email}
           />
         </FormGroup>
         <FormGroup>
@@ -69,6 +83,8 @@ function SignUp() {
             type="password"
             name="password"
             id="password"
+            onChange={handleChange}
+            value={credentials.password}
             placeholder="Enter Password"
           />
         </FormGroup>
@@ -81,6 +97,8 @@ function SignUp() {
             type="password"
             name="confirmPassword"
             id="confirmPassword"
+            onChange={handleChange}
+            value={credentials.confirmPassword}
             placeholder="Confirm Password"
           />
         </FormGroup>
@@ -92,12 +110,14 @@ function SignUp() {
             type="text"
             name="instructorCode"
             id="instructorCode"
+            onChange={handleChange}
+            value={credentials.instructorCode}
             placeholder="Enter Instructor Code"
           />
         </FormGroup>
         <FormGroup check>
           <Label className="form-label" check>
-            <Input type="checkbox" /> Terms and Agreements
+            <Input type="checkbox" name="tos" onChange={handleChange} checked={credentials.tos} /> Terms and Agreements
           </Label>
         </FormGroup>
         <Button>Submit</Button>
