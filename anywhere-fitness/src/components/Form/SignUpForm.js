@@ -1,16 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 function SignUp() {
+  const [signUpCred, setSignUpCred] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    instructorCode: ""
+  });
+
+  const submitForm = event => {
+    event.preventDefault();
+    console.log(signUpCred);
+  };
+
+  const handleChanges = event => {
+    setSignUpCred({ ...signUpCred, [event.target.name]: event.target.value });
+  };
+
   return (
     <Container className="form-container">
-      <Form className="form">
+      <Form onSubmit={submitForm} className="form">
         <h1 className="form-heading">Sign Up For Anywhere Fitness</h1>
         <FormGroup>
-          <Label className="form-label" for="exampleEmail">
+          <Label className="form-label" for="firstName">
+            First Name
+          </Label>
+          <Input
+            onChange={handleChanges}
+            type="name"
+            name="firstName"
+            id="firstName"
+            placeholder="Enter First Name"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label className="form-label" for="lastName">
+            Last Name
+          </Label>
+          <Input
+            onChange={handleChanges}
+            type="name"
+            name="lastName"
+            id="lastName"
+            placeholder="Enter Last Name"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label className="form-label" for="email">
             Email
           </Label>
           <Input
+            onChange={handleChanges}
             type="email"
             name="email"
             id="email"
@@ -22,6 +65,7 @@ function SignUp() {
             Password
           </Label>
           <Input
+            onChange={handleChanges}
             type="password"
             name="password"
             id="password"
@@ -33,8 +77,9 @@ function SignUp() {
             Confirm Password
           </Label>
           <Input
+            onChange={handleChanges}
             type="password"
-            name="password"
+            name="confirmPassword"
             id="confirmPassword"
             placeholder="Confirm Password"
           />
@@ -44,8 +89,8 @@ function SignUp() {
             Instructor Code
           </Label>
           <Input
-            type="password"
-            name="password"
+            type="text"
+            name="instructorCode"
             id="instructorCode"
             placeholder="Enter Instructor Code"
           />
