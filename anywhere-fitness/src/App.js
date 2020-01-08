@@ -8,10 +8,11 @@ import "./App.css";
 import PrivateRoute from "./components/PrivateRoute";
 
 
-function App() {
+function App(props) {
   return (
     <>
       <NavBar />
+
       <Router>
         <div className="App">
           <ul>
