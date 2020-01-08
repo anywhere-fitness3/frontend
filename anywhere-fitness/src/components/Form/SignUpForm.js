@@ -72,18 +72,7 @@ function SignUp() {
             placeholder="Enter Password"
           />
         </FormGroup>
-        <FormGroup>
-          <Label className="form-label" for="confirmPassword">
-            Confirm Password
-          </Label>
-          <Input
-            onChange={handleChanges}
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            placeholder="Confirm Password"
-          />
-        </FormGroup>
+
         <FormGroup>
           <Label className="form-label" for="instructorCode">
             Instructor Code
