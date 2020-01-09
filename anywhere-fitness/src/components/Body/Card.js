@@ -5,7 +5,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 function Cards(cardData) {
   return (
     <Card className="card">
-      <CardBody className="card">
+      <CardBody className="card-body">
         <CardTitle className="card-title">{cardData.title}</CardTitle>
         <CardText className="card-desc">{cardData.description}</CardText>
         <Link to="/classList" className="card-btn">

@@ -31,17 +31,8 @@ export default function Home() {
   return (
     <>
       <UncontrolledCarousel items={items} />
-      <form className="search-form">
-        <input
-          className="search-input"
-          id="search"
-          type="text"
-          name="textfield"
-          placeholder="Search"
-        />
-        <button className="search-btn">Search</button>
-      </form>
-      <ClassList />
+
+      {/* <ClassList /> */}
       <div className="card-container">
         <Cards
           title="All Available Classes For Students"

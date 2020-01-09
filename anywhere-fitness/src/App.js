@@ -11,13 +11,11 @@ import { ClassContext } from "./contexts/ClassContext";
 import ClassData from "./ClassData";
 import { axiosWithAuth } from "./components/axiosWithAuth";
 
-
 function App() {
-
   const [classList, setClassList] = useState([]);
   const [user, setUser] = useState();
 
-  useEffect(()=>{
+  useEffect(() => {
     setClassList(ClassData);
     // axiosWithAuth()
     //   .get("")
@@ -28,24 +26,23 @@ function App() {
     //   .catch(err => {
     //     console.log(err)
     //   })
-  }, [])
+  }, []);
 
   return (
     <>
       <NavBar />
-
-        <div className="App">
-          <UserContext.Provider value={classList} >
-            <ClassContext.Provider value={classList} >
-              <Switch>
-                <PrivateRoute exact path="/protected" component={Home} />
-                <Route path="/login" component={LoginForm} />
-                <Route path="/signup" component={SignUp} />
-              </Switch>
-            </ClassContext.Provider>
-          </UserContext.Provider>
-          
-        </div>
+      <div className="App">
+        <UserContext.Provider value={classList}>
+          <ClassContext.Provider value={classList}>
+            <Switch>
+              <PrivateRoute exact path="/protected" component={Home} />
+              <Route path="/login" component={LoginForm} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/home" component={Home} />
+            </Switch>
+          </ClassContext.Provider>
+        </UserContext.Provider>
+      </div>
     </>
   );
 }
