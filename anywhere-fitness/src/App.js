@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import NavBar from "./components/Body/Navigation";
 import Home from "./components/Body/Home";
@@ -8,12 +8,13 @@ import "./App.css";
 import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
 import { ClassContext } from "./contexts/ClassContext";
-import { ClassData } from "./ClassData";
+import ClassData from "./ClassData";
 
 
 function App() {
 
   const [classList, setClassList] = useState([]);
+  const [user, setUser] = useState();
 
   useEffect(()=>{
     setClassList(ClassData);
@@ -25,7 +26,7 @@ function App() {
 
       <Router>
         <div className="App">
-          <UserContext.Provider value={} >
+          <UserContext.Provider value={classList} >
             <ClassContext.Provider value={classList} >
               <ul>
                 <li>

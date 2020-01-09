@@ -1,5 +1,6 @@
 import React from "react";
 import { UncontrolledCarousel } from "reactstrap";
+import ClassList from "../ClassList";
 
 const items = [
   {
@@ -39,6 +40,7 @@ export default function Home() {
         />
         <button className="search-btn">Search</button>
       </form>
+      <ClassList />
     </>
   );
 }

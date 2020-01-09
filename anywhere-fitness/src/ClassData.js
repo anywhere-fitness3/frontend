@@ -1,5 +1,6 @@
 export default [
     {
+        workout: "Resistance Training",
         time: "7:00",
         date: "January 24th",
         duration: "60",
@@ -8,6 +9,7 @@ export default [
         location: "Seattle"
     },
     {
+        workout: "H.I.I.T",
         time: "7:00",
         date: "January 24th",
         duration: "60",
@@ -16,6 +18,7 @@ export default [
         location: "Portland"
     },
     {
+        workout: "Dancercise",
         time: "7:00",
         date: "January 24th",
         duration: "60",
@@ -24,6 +27,7 @@ export default [
         location: "Chicago"
     },
     {
+        workout: "Cycling",
         time: "7:00",
         date: "January 24th",
         duration: "60",
@@ -32,6 +36,7 @@ export default [
         location: "Los Angeles"
     },
     {
+        workout: "Body Pump",
         time: "7:00",
         date: "January 24th",
         duration: "60",
@@ -40,10 +45,11 @@ export default [
         location: "Seattle"
     },
     {
+        workout: "Pilates",
         time: "7:00",
         date: "January 24th",
         duration: "60",
-        type: "cardio",
+        type: "crossfit",
         intensity: "low",
         location: "Spokane"
     }

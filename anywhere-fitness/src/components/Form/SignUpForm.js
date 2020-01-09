@@ -46,7 +46,7 @@ function SignUp() {
             First Name
           </Label>
           <Input
-            onChange={handleChanges}
+            onChange={handleChange}
             type="name"
             name="firstName"
             id="firstName"
@@ -58,7 +58,7 @@ function SignUp() {
             Last Name
           </Label>
           <Input
-            onChange={handleChanges}
+            onChange={handleChange}
             type="name"
             name="lastName"
             id="lastName"
@@ -70,7 +70,7 @@ function SignUp() {
             Email
           </Label>
           <Input
-            onChange={handleChanges}
+            onChange={handleChange}
             type="email"
             name="email"
             id="email"
@@ -84,7 +84,7 @@ function SignUp() {
             Password
           </Label>
           <Input
-            onChange={handleChanges}
+            onChange={handleChange}
             type="password"
             name="password"
             id="password"
@@ -98,7 +98,7 @@ function SignUp() {
             Confirm Password
           </Label>
           <Input
-            onChange={handleChanges}
+            onChange={handleChange}
             type="password"
             name="confirmPassword"
             id="confirmPassword"
