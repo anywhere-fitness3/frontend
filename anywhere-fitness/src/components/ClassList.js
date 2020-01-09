@@ -3,8 +3,8 @@ import { Table } from 'reactstrap';
 import { ClassContext } from "../contexts/ClassContext";
 
 const ClassList = (props) => {
-    
-    classList = useContext(ClassContext);
+
+    const classList = useContext(ClassContext);
 
     return (
     <Table>
@@ -20,24 +20,18 @@ const ClassList = (props) => {
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+        {classList.map((workout) => (
+            <tr>
+                <th scope="row">{workout.workout}</th>
+                <td>{workout.time}</td>
+                <td>{workout.date}</td>
+                <td>{workout.duration}</td>
+                <td>{workout.type}</td>
+                <td>{workout.intensity}</td>
+                <td>{workout.location}</td>
+            </tr>
+        ))}
+       
         </tbody>
     </Table>
     );
