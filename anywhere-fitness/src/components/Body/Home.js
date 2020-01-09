@@ -40,16 +40,18 @@ export default function Home() {
         />
         <button className="search-btn">Search</button>
       </form>
-      <Cards
-        title="All Available Classes For Students"
-        description="See all of our fitness classes nearest to you!"
-        btn="See Classes"
-      />
-      <Cards
-        title="Tips For Getting Started"
-        description="View our Tips page for ways to get started, such as enrolling into classes and how to use the dashboard to communicate and much more!"
-        btn="View Tips"
-      />
+      <div className="card-container">
+        <Cards
+          title="All Available Classes For Students"
+          description="See all of our fitness classes nearest to you!"
+          btn="See Classes"
+        />
+        <Cards
+          title="Tips For Getting Started"
+          description="View our Tips page for ways to get started, such as enrolling into classes and how to use the dashboard to communicate and much more!"
+          btn="View Tips"
+        />
+      </div>
     </>
   );
 }
