@@ -50,6 +50,7 @@ export default function Home() {
           title="Tips For Getting Started"
           description="View our Tips page for ways to get started, such as enrolling into classes and how to use the dashboard to communicate and much more!"
           btn="View Tips"
+          link=""
         />
       </div>
     </>
