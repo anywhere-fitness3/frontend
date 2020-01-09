@@ -1,41 +1,38 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
-
-import { axiosWithAuth } from "../axiosWithAuth"
+import { axiosWithAuth } from "../axiosWithAuth";
 
 function SignUp() {
-
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
     confirmPassword: "",
     instructorCode: "",
     tos: false
-  })
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post('')
+      .post("")
       .then(res => {
-        console.log(res)
+        console.log(res);
       })
       .catch(err => {
-        console.log(err)
-      })
-  }
+        console.log(err);
+      });
+  };
 
   const handleChange = e => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
     console.log(credentials);
-  }
+  };
 
   const handleTosChange = e => {
     setCredentials({ ...credentials, tos: !credentials.tos });
     console.log(credentials);
-  }
+  };
 
   return (
     <Container className="form-container">
@@ -46,7 +43,7 @@ function SignUp() {
             First Name
           </Label>
           <Input
-            onChange={handleChanges}
+            onChange={handleChange}
             type="name"
             name="firstName"
             id="firstName"
@@ -58,7 +55,7 @@ function SignUp() {
             Last Name
           </Label>
           <Input
-            onChange={handleChanges}
+            onChange={handleChange}
             type="name"
             name="lastName"
             id="lastName"
@@ -70,7 +67,7 @@ function SignUp() {
             Email
           </Label>
           <Input
-            onChange={handleChanges}
+            onChange={handleChange}
             type="email"
             name="email"
             id="email"
@@ -84,27 +81,13 @@ function SignUp() {
             Password
           </Label>
           <Input
-            onChange={handleChanges}
+            onChange={handleChange}
             type="password"
             name="password"
             id="password"
             onChange={handleChange}
             value={credentials.password}
             placeholder="Enter Password"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label className="form-label" for="confirmPassword">
-            Confirm Password
-          </Label>
-          <Input
-            onChange={handleChanges}
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            onChange={handleChange}
-            value={credentials.confirmPassword}
-            placeholder="Confirm Password"
           />
         </FormGroup>
         <FormGroup>
@@ -122,12 +105,19 @@ function SignUp() {
         </FormGroup>
         <FormGroup check>
           <Label className="form-label" check>
-            <Input type="checkbox" name="tos" value={credentials.tos} onChange={handleTosChange} checked={credentials.tos} /> Terms and Agreements
+            <Input
+              type="checkbox"
+              name="tos"
+              value={credentials.tos}
+              onChange={handleTosChange}
+              checked={credentials.tos}
+            />
+            Terms and Agreements
           </Label>
         </FormGroup>
         <Button>Submit</Button>
         <FormGroup>
-          <Label className="form-label" for="examplePassword">
+          <Label className="form-label" for="LoginIn">
             Already have an account? <Link to="/">Login here</Link>
           </Label>
         </FormGroup>

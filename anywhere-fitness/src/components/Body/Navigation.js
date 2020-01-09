@@ -6,11 +6,13 @@ function NavBar() {
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand className="brand">Anywhere Fitness</NavbarBrand>
+        <NavbarBrand className="brand">
+          <Link to="/home">Anywhere Fitness</Link>
+        </NavbarBrand>
         <Nav className="mr-auto" navbar>
           <NavItem>
             <NavLink>
-              <Link className="nav-link" to={"/"}>
+              <Link className="nav-link" to={"/login"}>
                 Login
               </Link>
             </NavLink>
