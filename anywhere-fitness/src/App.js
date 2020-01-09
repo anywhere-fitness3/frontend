@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import NavBar from "./components/Body/Navigation";
 import Home from "./components/Body/Home";
@@ -9,29 +9,43 @@ import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
 import { ClassContext } from "./contexts/ClassContext";
 import ClassData from "./ClassData";
+import { axiosWithAuth } from "./components/axiosWithAuth";
+
 
 function App() {
+
   const [classList, setClassList] = useState([]);
-  useEffect(() => {
+  const [user, setUser] = useState();
+
+  useEffect(()=>{
     setClassList(ClassData);
-  }, []);
+    // axiosWithAuth()
+    //   .get("")
+    //   .then(res => {
+    //     console.log(res);
+    //     setClassList(res.data)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
+  }, [])
 
   return (
     <>
       <NavBar />
 
-      <div className="App">
-        <UserContext.Provider value={classList}>
-          <ClassContext.Provider value={classList}>
-            <Switch>
-              <PrivateRoute exact path="/protected" component={Home} />
-              <Route path="/login" component={LoginForm} />
-              <Route path="/signup" component={SignUp} />
-              <Route path="/home" component={Home} />
-            </Switch>
-          </ClassContext.Provider>
-        </UserContext.Provider>
-      </div>
+        <div className="App">
+          <UserContext.Provider value={classList} >
+            <ClassContext.Provider value={classList} >
+              <Switch>
+                <PrivateRoute exact path="/protected" component={Home} />
+                <Route path="/login" component={LoginForm} />
+                <Route path="/signup" component={SignUp} />
+              </Switch>
+            </ClassContext.Provider>
+          </UserContext.Provider>
+          
+        </div>
     </>
   );
 }
