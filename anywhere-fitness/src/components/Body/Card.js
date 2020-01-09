@@ -7,9 +7,9 @@ function Cards(cardData) {
     <div>
       <Card>
         <CardBody>
-          <CardTitle>{cardData.title}</CardTitle>
-          <CardText>{cardData.description}</CardText>
-          <Link>{cardData.btn}</Link>
+          <CardTitle className="card-title">{cardData.title}</CardTitle>
+          <CardText className="card-desc">{cardData.description}</CardText>
+          <Link className="card-btn">{cardData.btn}</Link>
         </CardBody>
       </Card>
     </div>
