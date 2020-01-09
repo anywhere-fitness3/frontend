@@ -9,6 +9,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
 import { ClassContext } from "./contexts/ClassContext";
 import ClassData from "./ClassData";
+import { axiosWithAuth } from "./components/axiosWithAuth";
 
 
 function App() {
@@ -18,27 +19,24 @@ function App() {
 
   useEffect(()=>{
     setClassList(ClassData);
+    // axiosWithAuth()
+    //   .get("")
+    //   .then(res => {
+    //     console.log(res);
+    //     setClassList(res.data)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
   }, [])
 
   return (
     <>
       <NavBar />
 
-      <Router>
         <div className="App">
           <UserContext.Provider value={classList} >
             <ClassContext.Provider value={classList} >
-              <ul>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-                <li>
-                  <Link to="/signup">Sign Up</Link>
-                </li>
-                <li>
-                  <Link to="/protected">Protected Page</Link>
-                </li>
-              </ul>
               <Switch>
                 <PrivateRoute exact path="/protected" component={Home} />
                 <Route path="/login" component={LoginForm} />
@@ -48,7 +46,6 @@ function App() {
           </UserContext.Provider>
           
         </div>
-      </Router>
     </>
   );
 }

@@ -1,41 +1,38 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
-
-import { axiosWithAuth } from "../axiosWithAuth"
+import { axiosWithAuth } from "../axiosWithAuth";
 
 function SignUp() {
-
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
     confirmPassword: "",
     instructorCode: "",
     tos: false
-  })
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post('')
+      .post("")
       .then(res => {
-        console.log(res)
+        console.log(res);
       })
       .catch(err => {
-        console.log(err)
-      })
-  }
+        console.log(err);
+      });
+  };
 
   const handleChange = e => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
     console.log(credentials);
-  }
+  };
 
   const handleTosChange = e => {
     setCredentials({ ...credentials, tos: !credentials.tos });
     console.log(credentials);
-  }
+  };
 
   return (
     <Container className="form-container">
@@ -94,20 +91,6 @@ function SignUp() {
           />
         </FormGroup>
         <FormGroup>
-          <Label className="form-label" for="confirmPassword">
-            Confirm Password
-          </Label>
-          <Input
-            onChange={handleChange}
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            onChange={handleChange}
-            value={credentials.confirmPassword}
-            placeholder="Confirm Password"
-          />
-        </FormGroup>
-        <FormGroup>
           <Label className="form-label" for="instructorCode">
             Instructor Code
           </Label>
@@ -122,12 +105,19 @@ function SignUp() {
         </FormGroup>
         <FormGroup check>
           <Label className="form-label" check>
-            <Input type="checkbox" name="tos" value={credentials.tos} onChange={handleTosChange} checked={credentials.tos} /> Terms and Agreements
+            <Input
+              type="checkbox"
+              name="tos"
+              value={credentials.tos}
+              onChange={handleTosChange}
+              checked={credentials.tos}
+            />
+            Terms and Agreements
           </Label>
         </FormGroup>
         <Button>Submit</Button>
         <FormGroup>
-          <Label className="form-label" for="examplePassword">
+          <Label className="form-label" for="LoginIn">
             Already have an account? <Link to="/">Login here</Link>
           </Label>
         </FormGroup>
