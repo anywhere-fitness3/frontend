@@ -31,7 +31,6 @@ const ClassList = (props) => {
                 <td>{workout.location}</td>
             </tr>
         ))}
-       
         </tbody>
     </Table>
     );

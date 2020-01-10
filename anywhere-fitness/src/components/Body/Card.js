@@ -4,6 +4,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 
 function Cards(cardData) {
   return (
+
     <Card className="card">
       <CardBody className="card-body">
         <CardTitle className="card-title">{cardData.title}</CardTitle>
@@ -13,6 +14,7 @@ function Cards(cardData) {
         </Link>
       </CardBody>
     </Card>
+
   );
 }
 

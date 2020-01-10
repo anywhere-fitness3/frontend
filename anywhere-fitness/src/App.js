@@ -12,13 +12,14 @@ import ClassData from "./ClassData";
 import ClassList from "./components/ClassList";
 import Editor from "./components/Body/Editor";
 import { axiosWithAuth } from "./components/axiosWithAuth";
+import FakeUser from "./FakeUser";
 
 function App() {
   const [classList, setClassList] = useState([]);
-  const [user, setUser] = useState();
 
   useEffect(() => {
     setClassList(ClassData);
+    // setUser(FakeUser);
     // axiosWithAuth()
     //   .get("")
     //   .then(res => {
@@ -30,11 +31,24 @@ function App() {
     //   })
   }, []);
 
+  // const getClassData = () => {
+  //   axiosWithAuth()
+  //     .get("")
+  //     .then(res => {
+  //       console.log(res);
+  //       setClassList(res.data);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }, []);
+
   return (
     <>
       <NavBar />
+
       <div className="App">
-        <UserContext.Provider value={classList}>
+       
           <ClassContext.Provider value={classList}>
             <Switch>
               <PrivateRoute exact path="/protected" component={Home} />
@@ -45,8 +59,9 @@ function App() {
               <Route path="/Editor" component={Editor} />
             </Switch>
           </ClassContext.Provider>
-        </UserContext.Provider>
+        
       </div>
+
     </>
   );
 }
