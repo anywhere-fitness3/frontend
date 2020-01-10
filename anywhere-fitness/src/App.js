@@ -9,6 +9,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
 import { ClassContext } from "./contexts/ClassContext";
 import ClassData from "./ClassData";
+import ClassList from "./components/ClassList";
 import { axiosWithAuth } from "./components/axiosWithAuth";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
               <Route path="/login" component={LoginForm} />
               <Route path="/signup" component={SignUp} />
               <Route path="/home" component={Home} />
+              <Route path="/ClassList" component={ClassList} />
             </Switch>
           </ClassContext.Provider>
         </UserContext.Provider>
