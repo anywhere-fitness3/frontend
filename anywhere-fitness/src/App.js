@@ -9,15 +9,15 @@ import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
 import { ClassContext } from "./contexts/ClassContext";
 import ClassData from "./ClassData";
+import ClassList from "./components/ClassList";
+import Editor from "./components/Body/Editor";
 import { axiosWithAuth } from "./components/axiosWithAuth";
 import FakeUser from "./FakeUser";
 
-
 function App() {
-
   const [classList, setClassList] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     setClassList(ClassData);
     // setUser(FakeUser);
     // axiosWithAuth()
@@ -29,7 +29,7 @@ function App() {
     //   .catch(err => {
     //     console.log(err)
     //   })
-  }, [])
+  }, []);
 
   // const getClassData = () => {
   //   axiosWithAuth()
@@ -47,16 +47,21 @@ function App() {
     <>
       <NavBar />
 
-        <div className="App">
-            <ClassContext.Provider value={classList} >
-              <Switch>
-                <PrivateRoute exact path="/protected" component={Home} />
-                <Route path="/login" component={LoginForm} />
-                <Route path="/signup" component={SignUp} />
-              </Switch>
-            </ClassContext.Provider>
-          
-        </div>
+      <div className="App">
+       
+          <ClassContext.Provider value={classList}>
+            <Switch>
+              <PrivateRoute exact path="/protected" component={Home} />
+              <Route path="/login" component={LoginForm} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/home" component={Home} />
+              <Route path="/ClassList" component={ClassList} />
+              <Route path="/Editor" component={Editor} />
+            </Switch>
+          </ClassContext.Provider>
+        
+      </div>
+
     </>
   );
 }
