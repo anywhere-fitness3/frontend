@@ -10,6 +10,7 @@ import { UserContext } from "./contexts/UserContext";
 import { ClassContext } from "./contexts/ClassContext";
 import ClassData from "./ClassData";
 import ClassList from "./components/ClassList";
+import Editor from "./components/Body/Editor";
 import { axiosWithAuth } from "./components/axiosWithAuth";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
               <Route path="/signup" component={SignUp} />
               <Route path="/home" component={Home} />
               <Route path="/ClassList" component={ClassList} />
+              <Route path="/Editor" component={Editor} />
             </Switch>
           </ClassContext.Provider>
         </UserContext.Provider>

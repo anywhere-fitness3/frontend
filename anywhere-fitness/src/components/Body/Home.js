@@ -48,10 +48,10 @@ export default function Home() {
         />
         {/* This will render for instructors only! */}
         <Cards
-          title="Add/Delete/Edit Fitness Classes"
+          title="Fitness Class Editor Add/Delete/Edit"
           description="Instructor Class editor. Delete any class that you're hosting, add a new class, and edit classes"
-          btn="View Tips"
-          direct="/Tips"
+          btn="Editor"
+          direct="/Editor"
         />
       </div>
     </>
