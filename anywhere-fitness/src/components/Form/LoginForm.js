@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { axiosWithAuth } from "../axiosWithAuth";
-import { UserContext } from ".../contexts/UserContext"
+// import { UserContext } from ".../contexts/UserContext"
 
 function LoginForm(props) {
   const [loginCred, setLoginCred] = useState({
@@ -30,7 +30,7 @@ function LoginForm(props) {
   };
 
   return (
-    <UserContext.Provider value={user} >
+    // <UserContext.Provider value={user} >
       <Container className="form-container">
         <Form onSubmit={submitForm} className="form">
           <h1 className="form-heading">Log In to Your Account</h1>
@@ -66,7 +66,7 @@ function LoginForm(props) {
           </FormGroup>
         </Form>
       </Container>
-    </UserContext.Provider>
+    // </UserContext.Provider>
 
   );
 }
