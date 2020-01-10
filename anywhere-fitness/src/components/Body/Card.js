@@ -8,7 +8,7 @@ function Cards(cardData) {
       <CardBody className="card-body">
         <CardTitle className="card-title">{cardData.title}</CardTitle>
         <CardText className="card-desc">{cardData.description}</CardText>
-        <Link to="/classList" className="card-btn">
+        <Link to={cardData.direct} className="card-btn">
           {cardData.btn}
         </Link>
       </CardBody>
