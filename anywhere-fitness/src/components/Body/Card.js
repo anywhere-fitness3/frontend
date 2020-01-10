@@ -11,7 +11,6 @@ function Cards(cardData) {
           <Link className="card-btn">{cardData.btn}</Link>
         </CardBody>
       </Card>
-    </div>
   );
 }
 
