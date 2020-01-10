@@ -15,9 +15,11 @@ import FakeUser from "./FakeUser";
 
 function App() {
 
+  const [classList, setClassList] = useState([]);
+
   useEffect(()=>{
     setClassList(ClassData);
-    setUser(FakeUser);
+    // setUser(FakeUser);
     // axiosWithAuth()
     //   .get("")
     //   .then(res => {
@@ -29,17 +31,17 @@ function App() {
     //   })
   }, [])
 
-  const getClassData = () => {
-    axiosWithAuth()
-      .get("")
-      .then(res => {
-        console.log(res);
-        setClassList(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
+  // const getClassData = () => {
+  //   axiosWithAuth()
+  //     .get("")
+  //     .then(res => {
+  //       console.log(res);
+  //       setClassList(res.data);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   return (
     <>
