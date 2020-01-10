@@ -31,12 +31,12 @@ function SignUp() {
         alert(errors.passwordError);
       }
 
-      // if ((credentials.firstName = "[a-zA-Z0-9!@#$%^*_|]")) {
-      //   isError = true;
-      //   errors.firstNameError =
-      //     "First name cannot contain special characters or numbers";
-      //   alert(errors.firstNameError);
-      // }
+      if ((credentials.firstName = "[a-zA-Z0-9!@#$%^*_|]")) {
+        isError = true;
+        errors.firstNameError =
+          "First name cannot contain special characters or numbers";
+        alert(errors.firstNameError);
+      }
 
       // if ((credentials.lastNameError = "[a-zA-Z0-9!@#$%^*_|]")) {
       //   isError = true;

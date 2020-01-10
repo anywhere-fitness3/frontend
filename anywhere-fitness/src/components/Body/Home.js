@@ -46,6 +46,13 @@ export default function Home() {
           btn="View Tips"
           direct="/Tips"
         />
+        {/* This will render for instructors only! */}
+        <Cards
+          title="Add/Delete/Edit Fitness Classes"
+          description="Instructor Class editor. Delete any class that you're hosting, add a new class, and edit classes"
+          btn="View Tips"
+          direct="/Tips"
+        />
       </div>
     </>
   );
