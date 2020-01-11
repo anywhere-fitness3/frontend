@@ -1,13 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Table } from 'reactstrap';
 import { ClassContext } from "../contexts/ClassContext";
+import { UserContext } from '../contexts/UserContext';
+import { Redirect } from "react-router-dom";
 
 const ClassList = (props) => {
 
     const classList = useContext(ClassContext);
 
+    const [courses, setCourses] = useState(classList)
+
+    const addCourse = course => {
+        setCourses([...courses, course])
+    }
+    const user = useContext(UserContext);
+
+    if (!user.isAuthenticated) {
+        return <Redirect to={`/login`} />;
+      }
+
+ 
+
     return (
-    <Table>
+        <Table>
         <thead>
         <tr>
             <th>Class</th>
@@ -20,7 +35,7 @@ const ClassList = (props) => {
         </tr>
         </thead>
         <tbody>
-        {classList.map((workout) => (
+        {courses.map((workout) => (
             <tr>
                 <th scope="row">{workout.workout}</th>
                 <td>{workout.time}</td>
@@ -32,7 +47,9 @@ const ClassList = (props) => {
             </tr>
         ))}
         </tbody>
-    </Table>
+        </Table>
+
+    //insert form here... onsubmit = {addCourse}
     );
 }
 
