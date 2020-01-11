@@ -1,13 +1,17 @@
-import React from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Button } from "reactstrap";
+import { Link, useHistory } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
 function NavBar() {
+  const user = useContext(UserContext);
+  const history = useHistory();
+
   return (
     <div>
       <Navbar color="dark" dark expand="md">
         <NavbarBrand className="brand">
-          <Link to="/home">Anywhere Fitness</Link>
+          <Link to="/">Anywhere Fitness</Link>
         </NavbarBrand>
         <Nav className="mr-auto" navbar>
           <NavItem>
@@ -24,6 +28,14 @@ function NavBar() {
               </Link>
             </NavLink>
           </NavItem>
+          {user.isAuthenticated &&
+          <NavItem>
+            <NavLink>
+              <Link className="nav-link" onClick={() => user.signout(() => history.push("/"))}>
+                Logout
+              </Link>
+            </NavLink>
+          </NavItem>}
         </Nav>
       </Navbar>
     </div>

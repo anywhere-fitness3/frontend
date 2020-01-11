@@ -180,7 +180,6 @@ function EditorForm() {
           <Button onClick={submitForm}>Add</Button>
         </Form>
       </Container>
-      <ClassList />
     </>
   );
 }

@@ -12,14 +12,16 @@ import ClassData from "./ClassData";
 import ClassList from "./components/ClassList";
 import Editor from "./components/Body/Editor";
 import { axiosWithAuth } from "./components/axiosWithAuth";
-import FakeUser from "./FakeUser";
+import { fakeAuth } from "./contexts/UserContext"
 
 function App() {
   const [classList, setClassList] = useState([]);
+  const [user, setUser] = useState({});
+
 
   useEffect(() => {
     setClassList(ClassData);
-    // setUser(FakeUser);
+    setUser(fakeAuth);
     // axiosWithAuth()
     //   .get("")
     //   .then(res => {
@@ -45,21 +47,22 @@ function App() {
 
   return (
     <>
-      <NavBar />
 
       <div className="App">
-       
+      <UserContext.Provider value={user}>
+        <NavBar />
+
           <ClassContext.Provider value={classList}>
             <Switch>
-              <PrivateRoute exact path="/protected" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/login" component={LoginForm} />
               <Route path="/signup" component={SignUp} />
-              <Route path="/home" component={Home} />
-              <Route path="/ClassList" component={ClassList} />
+              <PrivateRoute path="/ClassList" component={ClassList} />
               <Route path="/Editor" component={Editor} />
             </Switch>
           </ClassContext.Provider>
-        
+        </UserContext.Provider>
+
       </div>
 
     </>

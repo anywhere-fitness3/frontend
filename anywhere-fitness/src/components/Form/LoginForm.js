@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useHistory, useLocation, Redirect } from "react-router-dom";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { axiosWithAuth } from "../axiosWithAuth";
-// import { UserContext } from ".../contexts/UserContext"
+import { UserContext } from "../../contexts/UserContext";
 
 function LoginForm(props) {
   const [loginCred, setLoginCred] = useState({
@@ -10,8 +10,27 @@ function LoginForm(props) {
     password: ""
   });
 
-  const [user, setUser] = useState();
+  // const user = useContext(UserContext);
 
+  // if (user.isAuthenticated) {
+  //   return <Redirect to={`/home`} />;
+  // }
+
+  // Backend not working... to fake a login use the below function for the for onSubmit instead of submitForm()
+  const fakeAuth = useContext(UserContext);
+
+  let history = useHistory();
+  let location = useLocation();
+
+  let { from } = location.state || { from: { pathname: "/" } };
+
+  const login = () => {
+    fakeAuth.authenticate(() => {
+      history.replace(from);
+    });
+  };
+
+  // Above code only relevant for fake login
 
   const submitForm = event => {
     event.preventDefault();
@@ -63,7 +82,6 @@ function LoginForm(props) {
 
   return (
 
-     // <UserContext.Provider value={user} >
     <Container className="form-container">
       <Form className="form">
         <h1 className="form-heading">Log In to Your Account</h1>
@@ -93,7 +111,7 @@ function LoginForm(props) {
             placeholder="Enter Password"
           />
         </FormGroup>
-        <Button onClick={submitForm}>Login</Button>
+        <Button onClick={login}>Login</Button>
         <FormGroup>
           <Label className="form-label" for="signup">
             Don't have an account? <Link to="/signup">Sign up here</Link>
@@ -101,8 +119,6 @@ function LoginForm(props) {
         </FormGroup>
       </Form>
     </Container>
-        // </UserContext.Provider>
-
   );
 }
 
