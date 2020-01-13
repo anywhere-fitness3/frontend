@@ -17,7 +17,7 @@ import { UserContext } from "../contexts/UserContext";
 //     )
 // }
 
-
+// PrivateRoute using fake authentication
 function PrivateRoute({ children, ...theRest }) {
     const user = useContext(UserContext);
     return (

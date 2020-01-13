@@ -12,9 +12,6 @@ function LoginForm(props) {
 
   // const user = useContext(UserContext);
 
-  // if (user.isAuthenticated) {
-  //   return <Redirect to={`/home`} />;
-  // }
 
   // Backend not working... to fake a login use the below function for the for onSubmit instead of submitForm()
   const fakeAuth = useContext(UserContext);

@@ -1,3 +1,5 @@
+// Dummy data
+
 export default [
   {
     workout: "Resistance Training",

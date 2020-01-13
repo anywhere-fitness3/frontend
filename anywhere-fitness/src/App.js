@@ -18,20 +18,14 @@ function App() {
   const [classList, setClassList] = useState([]);
   const [user, setUser] = useState({});
 
-
+// Dummy data and fake user loaded upon mounting
   useEffect(() => {
     setClassList(ClassData);
     setUser(fakeAuth);
-    // axiosWithAuth()
-    //   .get("")
-    //   .then(res => {
-    //     console.log(res);
-    //     setClassList(res.data)
-    //   })
-    //   .catch(err => {
-    //     console.log(err)
-    //   })
+    // getClassData();
   }, []);
+
+  // Backend not completed. Below code shows how you would request the class data if it was.
 
   // const getClassData = () => {
   //   axiosWithAuth()
