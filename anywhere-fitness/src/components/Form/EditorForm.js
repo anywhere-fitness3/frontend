@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import ClassList from "../ClassList";
+import { axiosWithAuth } from "../axiosWithAuth";
 
 function EditorForm() {
   const [classCred, setClassCred] = useState({
@@ -13,6 +14,42 @@ function EditorForm() {
     intensity: "",
     location: ""
   });
+// Add Request
+  const addCourse = e => {
+    e.preventDefault();
+    axiosWithAuth()
+        .post("/addCourse", classCred)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err)
+        })
+  }
+// Update Request
+  const updateCourse = e => {
+    e.preventDefault();
+    axiosWithAuth()
+      .put("/updateCourse", classCred)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+// Delete Request
+  const deleteCourse = e => {
+    e.preventDefault();
+    axiosWithAuth()
+      .delete("/deleteCourse", classCred)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
   const submitForm = event => {
     event.preventDefault();

@@ -3,12 +3,29 @@ import { Table } from 'reactstrap';
 import { ClassContext } from "../contexts/ClassContext";
 import { UserContext } from '../contexts/UserContext';
 import { Redirect } from "react-router-dom";
+import { axiosWithAuth } from './axiosWithAuth';
 
 const ClassList = (props) => {
 
     const classList = useContext(ClassContext);
 
-    const [courses, setCourses] = useState(classList)
+    const [courses, setCourses] = useState(classList);
+
+    const [searchTerm, setSearchTerm] = useState("");
+    
+    const [searchResults, setSearchResults] = useState([]);
+
+    useEffect(()=> {
+        const results = courses.filter(search =>
+            search.workout.toString().toLowerCase().includes(searchTerm)
+            );
+        setSearchResults(results);
+    }, [searchTerm])
+
+    const handleChange = event => {
+        setSearchTerm(event.target.value);
+        console.log(searchTerm);
+    }
 
     const addCourse = course => {
         setCourses([...courses, course])
@@ -22,6 +39,17 @@ const ClassList = (props) => {
  
 
     return (
+        <>
+        <form>
+            <label for="course">Seach:</label>
+            <input
+                id="course"
+                type="text"
+                placeholder="Seach"
+                value={searchTerm}
+                onChange={handleChange}
+            />
+        </form>
         <Table>
         <thead>
         <tr>
@@ -35,7 +63,7 @@ const ClassList = (props) => {
         </tr>
         </thead>
         <tbody>
-        {courses.map((workout) => (
+        {searchResults.map((workout) => (
             <tr>
                 <th scope="row">{workout.workout}</th>
                 <td>{workout.time}</td>
@@ -48,8 +76,7 @@ const ClassList = (props) => {
         ))}
         </tbody>
         </Table>
-
-    //insert form here... onsubmit = {addCourse}
+    </>
     );
 }
 
